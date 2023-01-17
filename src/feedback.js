@@ -47,7 +47,9 @@ export default class Feedback {
 					icon: '🐞'
 				}
 			},
-			showLogo: true
+			showLogo: true,
+			logoText: 'Feedbacks',
+			logoLink: 'https://feedback.dotnetthoughts.net'
 		}
 
 		// Parse the provided options and merge with defaults
@@ -110,7 +112,7 @@ export default class Feedback {
 						<div class="feedback-content-list">
 							${ Object.entries(this.options.types).reduce((prev, [ id, item ]) => prev += `<button id="feedback-item-${ id }" class="feedback-item"><span>${ item.icon }</span>${ item.text }</button>`, '') }
 						</div>
-						${ this.options.showLogo ? '<div class="feedback-logo"><a href="https://feedback.dotnetthoughts.net" target="_blank">Feedbacks</a></div>' : '' }
+						${ this.options.showLogo ? '<div class="feedback-logo"><a href="' + this.options.logoLink +'" target="_blank">' + this.options.logoText + '</a></div>' : '' }
 					</div>
 				</div>
 				<div class="feedback-close">
