@@ -46,7 +46,8 @@ export default class Feedback {
 					text: 'I found an issue',
 					icon: '🐞'
 				}
-			}
+			},
+			showLogo: true
 		}
 
 		// Parse the provided options and merge with defaults
@@ -109,6 +110,7 @@ export default class Feedback {
 						<div class="feedback-content-list">
 							${ Object.entries(this.options.types).reduce((prev, [ id, item ]) => prev += `<button id="feedback-item-${ id }" class="feedback-item"><span>${ item.icon }</span>${ item.text }</button>`, '') }
 						</div>
+						${ this.options.showLogo ? '<div class="feedback-logo"><a href="https://feedback.dotnetthoughts.net" target="_blank">Feedbacks</a></div>' : '' }
 					</div>
 				</div>
 				<div class="feedback-close">
@@ -154,10 +156,10 @@ export default class Feedback {
 					</div>
 					<div class="feedback-content">
 							${ this.options.emailField ? `<input id="feedback-email" type="email" name="email" placeholder="${ this.options.emailPlaceholder }">` : '' }
-							<textarea id="feedback-message" name="feedback" autofocus type="text" maxlength="500" rows="5" placeholder="${ this.options.inputPlaceholder }"></textarea>
+							<textarea id="feedback-message" tabindex="1" name="feedback" autofocus type="text" maxlength="500" rows="5" placeholder="${ this.options.inputPlaceholder }"></textarea>
 							<div id="feedback-actions" class="feedback-actions">
-								<button type="button" id="feedback-back">${ this.options.backText }</button>
-								<button type="submit" id="feedback-submit">${ this.options.submitText }</button>
+								<button type="button" tabindex="3" id="feedback-back">${ this.options.backText }</button>
+								<button type="submit" tabindex="2" id="feedback-submit">${ this.options.submitText }</button>
 							</div>
 					</div>
 				</div>
@@ -641,6 +643,16 @@ export default class Feedback {
 				font-weight: 700;
 				font-size: 1rem;
 				margin-left: .5rem;
+			}
+			.feedback-logo {
+				font-size: 0.7rem;
+				font-weight: 700;
+			}
+
+			.feedback-logo a {
+				color: #000;
+				text-decoration: none;
+				text-shadow: 2px 2px #CCC;
 			}
 		`
 
