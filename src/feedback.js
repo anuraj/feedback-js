@@ -157,11 +157,11 @@ export default class Feedback {
 						<p>${feedbackType.icon} ${feedbackType.text}</p>
 					</div>
 					<div class="feedback-content">
-							${this.options.emailField ? `<input id="feedback-email" type="email" name="email" placeholder="${this.options.emailPlaceholder}">` : ''}
-							<textarea id="feedback-message" tabindex="1" name="feedback" autofocus type="text" maxlength="500" rows="5" placeholder="${this.options.inputPlaceholder}"></textarea>
+							${this.options.emailField ? `<input id="feedback-email" tabindex="1" type="email" name="email" placeholder="${this.options.emailPlaceholder}">` : ''}
+							<textarea id="feedback-message" tabindex="2" name="feedback" autofocus type="text" maxlength="500" rows="5" placeholder="${this.options.inputPlaceholder}"></textarea>
 							<div id="feedback-actions" class="feedback-actions">
-								<button type="button" tabindex="3" id="feedback-back">${this.options.backText}</button>
-								<button type="submit" tabindex="2" id="feedback-submit">${this.options.submitText}</button>
+								<button type="button" tabindex="4" id="feedback-back">${this.options.backText}</button>
+								<button type="submit" tabindex="3" id="feedback-submit">${this.options.submitText}</button>
 							</div>
 					</div>
 				</div>
