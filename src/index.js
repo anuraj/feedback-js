@@ -5,7 +5,7 @@ const detect = () => {
 	const optsElem = document.querySelector('[data-feedback-opts]')
 	const endpointElem = document.querySelector('[data-feedback-endpoint]')
 	const buttonElems = document.querySelectorAll('[data-feedback-trigger]')
-
+	const emailElem = document.querySelector('[data-feedback-email]')
 	// If no attributes are found, assume programmatic usage and attach Feedback class to window
 	if (!optsElem && !endpointElem && buttonElems.length < 1) {
 		window.Feedback = Feedback
@@ -16,7 +16,8 @@ const detect = () => {
 	// Parse options specified in data-feedback-opts and data-feedback-endpoint attributes
 	const attributeValue = optsElem && optsElem.getAttribute('data-feedback-opts') || '{}'
 	const endpointValue = endpointElem && { endpoint: endpointElem.getAttribute('data-feedback-endpoint') } || {}
-	const options = Object.assign({}, JSON.parse(attributeValue), endpointValue)
+	const emailValue = emailElem && { email: emailElem.getAttribute('data-feedback-email') } || {}
+	const options = Object.assign({}, JSON.parse(attributeValue), endpointValue, emailValue)
 
 	window.addEventListener('load', () => {
 		// Initialize the widget and attach styles

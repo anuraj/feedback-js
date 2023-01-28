@@ -49,7 +49,8 @@ export default class Feedback {
 			},
 			showLogo: true,
 			logoText: 'Feedbacks',
-			logoLink: 'https://feedback.dotnetthoughts.net'
+			logoLink: 'https://feedback.dotnetthoughts.net',
+			email: ''
 		}
 
 		// Parse the provided options and merge with defaults
@@ -157,7 +158,7 @@ export default class Feedback {
 						<p>${feedbackType.icon} ${feedbackType.text}</p>
 					</div>
 					<div class="feedback-content">
-							${this.options.emailField ? `<input id="feedback-email" tabindex="1" type="email" name="email" placeholder="${this.options.emailPlaceholder}">` : ''}
+							${ this.options.emailField ? `<input id="feedback-email" tabindex="1" type="email" name="email" value="${this.options.email}" placeholder="${this.options.emailPlaceholder}">` : ''}
 							<textarea id="feedback-message" tabindex="2" name="feedback" autofocus type="text" maxlength="500" rows="5" placeholder="${this.options.inputPlaceholder}"></textarea>
 							<div id="feedback-actions" class="feedback-actions">
 								<button type="button" tabindex="4" id="feedback-back">${this.options.backText}</button>
