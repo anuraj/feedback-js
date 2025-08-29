@@ -27,6 +27,7 @@ export default class Feedback {
 			emailPlaceholder: 'Email address (optional)',
 			submitText: 'Submit',
 			backText: 'Back',
+			loadingText: 'Loading',
 			failedTitle: 'Oops, an error ocurred!',
 			failedMessage: 'Please try again. If this keeps happening, try to send an email instead.',
 			position: 'right',
@@ -277,7 +278,7 @@ export default class Feedback {
 		if (!this.root) return
 
 		const html = `
-			<button id="feedback-loading"><div class="feedback-loader"><div></div><div></div><div></div><div></div></div>Loading</button>
+			<button id="feedback-loading"><div class="feedback-loader"><div></div><div></div><div></div><div></div></div>${ this.options.loadingText }</button>
 		`
 
 		document.getElementById('feedback-actions').innerHTML = html
@@ -304,9 +305,11 @@ export default class Feedback {
 
 		this.root.innerHTML = html
 
-		setTimeout(() => {
-			this.renderButton()
-		}, 3000)
+		if (this.showDefaultBtn) {
+			setTimeout(() => {
+				this.renderButton()
+			}, 3000)
+		}
 	}
 
 	/**
